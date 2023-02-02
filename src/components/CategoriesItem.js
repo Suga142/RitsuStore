@@ -4,13 +4,13 @@ import { COLORS } from '../constants/Colors';
 
 const CategoriesItem = ({ item, onSelected }) => {
   return (
-    <View style={styles.categoriesItem}>
-      <TouchableOpacity style={styles.container}>
+    <View  style={{...styles.categoriesItem, ...{backgroundColor: item.color}}}>
+      <TouchableOpacity style={styles.container}  onPress={() => onSelected(item)} >
         <View style={styles.textContainer}>
-          <Text>Category Title</Text>
+          <Text>{item.title}</Text>
         </View>
         <View style={styles.imgContainer}>
-          <Image style={styles.imgContainer} source={require("../assets/img/mondstad.jpg")} />
+          <Image style={styles.imgContainer} source={require({item.img})} />
         </View>
       </TouchableOpacity>
     </View>
@@ -20,8 +20,8 @@ const CategoriesItem = ({ item, onSelected }) => {
 export default CategoriesItem;
 const styles = StyleSheet.create({
   categoriesItem: {
+    flex: 1,
     width: "100%",
-    height: 130,
     backgroundColor: COLORS.tertiary,
     borderRadius: 10,
     margin: 10,
@@ -32,10 +32,11 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   container: {
+    flex: 1,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    paddingHorizontal: 10,
+    paddingLeft: 15,
   },
   textContainer: {
     width: "60%",
@@ -46,10 +47,8 @@ const styles = StyleSheet.create({
   imgContainer: {
     width: "50%",
     height: "100%",
+    borderRadius: 10,
   },
-  img: {
-    width: 50,
-    height: 50,
-  }
+
 
 });

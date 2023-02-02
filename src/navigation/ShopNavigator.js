@@ -16,7 +16,9 @@ export default ShopNavigator = () => {
                     headerTitleStyle: {fontWeight: "bold"},
                 }} >
                 <Stack.Screen name="Categories" component={CategoriesScreen} options={{title: "Ritsu Store"}} />
-                <Stack.Screen name="Products" component={ProductsScreen}  />
+                <Stack.Screen name="Products" component={ProductsScreen} options={({route}) => ({
+                    title: route.params.title,
+                })} />
                 <Stack.Screen name="Details" component={DetailsScreen} />
             </Stack.Navigator>
         </NavigationContainer>

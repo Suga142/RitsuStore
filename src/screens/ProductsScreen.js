@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import ProductsItem from '../components/ProductsItem';
 
-const ProductsScreen = ({navigation}) => {
+const ProductsScreen = ({ navigation, route }) => {
+
+  useEffect(() => {
+
+  }, [])
+
   return (
     <View style={styles.container}>
-      <Text>ProductsScreen</Text>
-      <Button title="Go to Details" onPress={()=> navigation.navigate("Details")} color="turquoise" />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <View style={styles.productsContainer}>
+        <ProductsItem />
+      </View>
     </View>
   );
 }
@@ -14,9 +20,14 @@ const ProductsScreen = ({navigation}) => {
 export default ProductsScreen
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-    },
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  productsContainer: {
+    height: 150,
+    width: 150,
+  },
 });

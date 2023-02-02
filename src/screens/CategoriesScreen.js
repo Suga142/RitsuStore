@@ -1,15 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, FlatList } from 'react-native';
 import CategoriesItem from '../components/CategoriesItem';
+import { CATEGORIES } from '../data/Categories';
 
 const CategoriesScreen = ({ navigation }) => {
+
+  const handleSelectedCategory = (item) => {
+    navigation.navigate("Products", {categoryId: item.id, title: item.title})
+  }
+
+  const renderCategoriesItem = ({item}) => (
+    <View style={styles.categoriesContainer}>
+      <CategoriesItem item={item} onSelected={handleSelectedCategory} />
+    </View>
+    
+  );
+
   return (
     <View style={styles.container}>
-      <View style={styles.categoriesContainer}>
-        <CategoriesItem />
-      </View>
-      <Text>CategoriesScreen</Text>
-      <Button title="Go to Products" onPress={() => navigation.navigate("Products")} color="turquoise" />
+      <FlatList data={CATEGORIES} renderItem={renderCategoriesItem} keyExtractor={item => item.id} />
+      
     </View>
   );
 }
@@ -22,8 +32,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   categoriesContainer: {
-    margin: 10,
-    height: 200,
-    width: 350,
+    padding: 10,
+    height: 150,
   },
 });
