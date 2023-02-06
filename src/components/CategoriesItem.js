@@ -10,7 +10,7 @@ const CategoriesItem = ({ item, onSelected }) => {
           <Text>{item.title}</Text>
         </View>
         <View style={styles.imgContainer}>
-          <Image style={styles.imgContainer} source={require({item.img})} />
+          <Image style={styles.imgContainer} source={item.img} />
         </View>
       </TouchableOpacity>
     </View>
@@ -21,11 +21,10 @@ export default CategoriesItem;
 const styles = StyleSheet.create({
   categoriesItem: {
     flex: 1,
-    width: "100%",
-    backgroundColor: COLORS.tertiary,
+    width: "93%",
     borderRadius: 10,
     margin: 10,
-    shadowColor: "black",
+    shadowColor: COLORS.darkColor,
     shadowOpacity: 0.5,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 10,

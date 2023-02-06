@@ -5,7 +5,7 @@ export const PRODUCTS = [
         name: "Funko Pop Tomioka Giyuu",
         description: "Tomioka Giyuu figure from Demon Slayer",
         price: 13000,
-        img: "aaa",
+        img: require("../assets/img/tomioka.jpg"),
     },
     {
         id: 2,
@@ -13,7 +13,7 @@ export const PRODUCTS = [
         name: "Xayah x Rakan Keychain",
         description: "Xayah and Rakan keychain from League of Legends",
         price: 3000,
-        img: "aaa",
+        img: require("../assets/img/rakan.jpg"),
     },
     {
         id: 3,
@@ -21,7 +21,7 @@ export const PRODUCTS = [
         name: "Tartaglia Plushie",
         description: "Tartaglia Plushie from Genshin Impact",
         price: 8000,
-        img: "aaa",
+        img: require("../assets/img/tartaglia.jpg"),
     },
     {
         id: 4,
@@ -29,7 +29,7 @@ export const PRODUCTS = [
         name: "Mondstad Keychains Pack",
         description: "Keychain Mondstad characters pack from Genshin Impact",
         price: 9000,
-        img: "aaa",
+        img: require("../assets/img/mondstad.jpg"),
     },
     {
         id: 5,
@@ -37,6 +37,6 @@ export const PRODUCTS = [
         name: "Zhongli Plushie",
         description: "Zhongli Plushie from Genshin Impact",
         price: 8000,
-        img: "aaa",
+        img: require("../assets/img/zhongli.jpg"),
     },
 ]

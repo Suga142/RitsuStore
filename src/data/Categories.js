@@ -4,25 +4,25 @@ export const CATEGORIES = [
     {
         id: 1,
         title: "Funko",
-        img: "../assets/img/tanjiro.jpg",
+        img: require("../assets/img/tanjiro.jpg"),
         color: COLORS.actionColor,
     },
     {
         id: 2,
         title: "Keychains",
-        img: "../assets/img/rakan.jpg",
-        color: COLORS.disableColor
+        img: require("../assets/img/rakan.jpg"),
+        color: COLORS.tertiary
     },
     {
         id: 3,
         title: "Plushies",
-        img: "../assets/img/plushies.jpg",
-        color: COLORS.tertiary
+        img: require("../assets/img/plushies.jpg"),
+        color: COLORS.disableColor
     },
     {
         id: 4,
         title: "Packs",
-        img: "../assets/img/mondstad.jpg",
+        img: require("../assets/img/mondstad.jpg"),
         color: COLORS.primary
     },
 ]

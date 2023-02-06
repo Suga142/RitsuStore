@@ -1,19 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native';
 import { COLORS } from "../constants/Colors"
 
-const ProductsItem = () => {
+const ProductsItem = ({item, onSelected}) => {
     return (
-        <View style={styles.itemContainer}>
+        <TouchableOpacity style={styles.itemContainer} onPress={() => onSelected(item)} >
             <View style={styles.imgContainer}>
-                <Image style={styles.img} source={require("../assets/img/tanjiro.jpg")} />
+                <Image style={styles.img} source={item.img} />
             </View>
             <View style={styles.textContainer}>
-                <Text>Name</Text>
-                <Text>Description</Text>
-                <Text>Price</Text>
+                <Text>{item.name}</Text>
+                <Text>{item.description}</Text>
+                <Text>{item.price}</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 }
 
@@ -21,6 +21,7 @@ export default ProductsItem;
 const styles = StyleSheet.create({
     itemContainer: {
         flex: 1,
+        padding: 20,
         width: "100%",
         backgroundColor: COLORS.tertiary,
         borderRadius: 10,
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     imgContainer: {
-        height: "60%",
+        height: "50%",
     },
     textContainer: {
         height: "40%",
