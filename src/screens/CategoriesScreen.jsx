@@ -1,12 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, FlatList } from 'react-native';
 import CategoriesItem from '../components/CategoriesItem';
-import { CATEGORIES } from '../data/Categories';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectedCategory } from '../store/actions/category.action';
 
 const CategoriesScreen = ({ navigation }) => {
 
+  const categories = useSelector(state => state.categories.categories)
+  const dispatch = useDispatch()
+
   const handleSelectedCategory = (item) => {
-    navigation.navigate("Products", {categoryId: item.id, title: item.title})
+    dispatch(selectedCategory(item.id))
+    navigation.navigate("Products", {
+      //categoryId: item.id, 
+      title: item.title
+    })
   }
 
   const renderCategoriesItem = ({item}) => (
@@ -18,7 +26,7 @@ const CategoriesScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <FlatList data={CATEGORIES} renderItem={renderCategoriesItem} keyExtractor={item => item.id} />
+      <FlatList data={categories} renderItem={renderCategoriesItem} keyExtractor={item => item.id} />
       
     </View>
   );

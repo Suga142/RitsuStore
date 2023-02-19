@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { COLORS } from "../constants/Colors"
 
 const ProductsItem = ({item, onSelected}) => {
     return (
-        <TouchableOpacity style={styles.itemContainer} onPress={() => onSelected(item)} >
+        <TouchableOpacity style={{...styles.itemContainer, ...{backgroundColor: item.color}}} onPress={() => onSelected(item)} >
             <View style={styles.imgContainer}>
                 <Image style={styles.img} source={item.img} />
             </View>
@@ -23,23 +23,20 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 20,
         width: "100%",
-        backgroundColor: COLORS.tertiary,
         borderRadius: 10,
-        margin: 10,
+        marginBottom: 20,
         shadowColor: "black",
         shadowOpacity: 0.5,
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 10,
         elevation: 5,
     },
-    imgContainer: {
-        height: "50%",
+    img: {
+        height: 200,
+        width: "95%",
     },
     textContainer: {
-        height: "40%",
-    },
-    img: {
-        height: "100%",
-        width: "100%"
+        justifyContent: "center",
+        alignItems: "center"
     },
 });
